@@ -28,3 +28,30 @@ You can customize multiple params. See next table.
 ## Targets
 You can execute these targets:
 
+| Param     	| Description                                                	|
+|-----------	|------------------------------------------------------------	|
+| `build`   	| Pull the image and create the directory to store ipfs data 	|
+| `start`   	| Start the IPFS daemon                                      	|
+| `logs`    	| Show the IPFS logs                                         	|
+| `command` 	| Execute an IPFS command. For example, `version`            	|
+| `add`     	| Add a file or directory to IPFS                            	|
+| `stop`    	| Stop and clean the IPFS docker container                   	|
+
+
+## Example
+If you want to add a directory from the current directory like:
+
+```bash
+.
+├── test
+│   └── b.txt
+```
+
+Then
+
+```bash
+$  make RES=test add
+docker exec ipfs-host ipfs add -r /export/test
+added QmeQkPj49FbmJ5BPjzg5GWS3VKmLP88f15n5zkzsSf4fKM test/b.txt
+added QmPRhop3GJ4FyEzBNWM9JKVG4Hm1v4HKdyvfEUHdytHb7P test
+```
