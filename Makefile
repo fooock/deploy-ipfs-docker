@@ -33,7 +33,7 @@ command:
 
 add:
 	cp -r $(RES) $(STAGING_DIR)
-	docker exec $(NAME) ipfs add -r /export/$(RES)
+	docker exec $(NAME) ipfs add -r $(abspath /export/$(RES))
 
 logs:
 	docker logs -f $(NAME)
